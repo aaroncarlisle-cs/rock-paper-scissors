@@ -1,24 +1,31 @@
+// Array of possible game selections for Rock, Paper, Scissors
 let gameSelections = ["Rock", "Paper", "Scissors"];
 
 function computerPlay() {
-    // Randomly return either rock, paper, or scissors as id for gameSelections array
-    // return Math.floor(Math.random()*gameSelections.length);
-    return 0;
+    // Randomly return an array index to represent the computer's selection.
+     return Math.floor(Math.random()*gameSelections.length);
 }
 
 function singleRound(playerSelection, computerSelection) {
-    // Function returns 0 for loss, 1 for win, and 2 for tie.
+    /**
+     * Uses playerSelection and computerSelection to compute the winner
+     * and then returns the result as a number.
+     * 
+     * @param {number} playerSelection - Player's selection as array index.
+     * @param {number} computerSelection - Computer's selection as array index.
+     * @return {number} - Returns 0 for Computer win, 1 for Player win, or 2 for Tie.
+     */
 
-    // User input feedback
+    // Print selections into the console.
     console.log(`Player chooses ${gameSelections[playerSelection]}`);
     console.log(`Computer chooses ${gameSelections[computerSelection]}`);
 
-    // Check for tie.
+    // Check for tie and return if true.
     if (playerSelection == computerSelection) {
         console.log("Tie game!");
         return 2;
     }
-    // Get the necessary computer selection for the player to win
+    // Get the required value for computerSelection for the player to win.
     winCondition = getWinCondition(playerSelection);
 
     // If the computer's choice matches the win condition, player wins.
@@ -26,7 +33,7 @@ function singleRound(playerSelection, computerSelection) {
         console.log("Player wins!");
         return 1;
     }
-    // Otherwise, player loses.
+    // Otherwise, the player loses.
     else {
         console.log("Player loses!");
         return 0;
@@ -34,22 +41,39 @@ function singleRound(playerSelection, computerSelection) {
 }
 
 function getWinCondition(playerSelection) {
-    // Set win conditions based on player's choice.
+    /**
+     * Uses the playerSelection array index to determine the 
+     * required computerSelection array index for the player 
+     * to win.
+     * 
+     * Rock - 0
+     * Paper - 1
+     * Scissors - 2
+     */
     switch (playerSelection) {
         case 0: 
-            return 2;
-        case 1:
-            return 0;
-        case 2:
+            return 2; 
+        case 1: 
+            return 0; 
+        case 2: 
             return 1;
     }
 }
 
 function getPlayerSelection () {
-    let playerSelection = prompt("Please enter rock, paper, or scissors");
-    playerSelection = playerSelection.toLowerCase();
-    let validSelection = false;
-    let selectionID = -1;
+    /**
+     * Prompts the user to enter rock, paper, or scissors and returns
+     * the selection as the corresponding array index for gameSelections.
+     * 
+     * @return {number} - User's selection as array index.
+     */
+
+    let validSelection = false; // False unless the user chooses a valid selection
+    let selectionID = -1; // Corresponding array index for user's selection.
+    let playerSelection = prompt("Please enter rock, paper, or scissors"); // User input prompt.
+    playerSelection = playerSelection.toLowerCase(); // Convert user input to lowercase for comparison
+
+    // Compares user input to valid selections. Reprompts user for invalid selections.
     while (!validSelection) {
         if (playerSelection == "rock") {
             selectionID = 0;
@@ -92,11 +116,13 @@ function game() {
         Player Score: ${playerScore} Computer Score: ${computerScore}
         `);
     }
+
     console.log(`******************************`);
     console.log(` Final Score                `);
     console.log(` Player: ${playerScore}     `);
     console.log(` Computer: ${computerScore} `); 
-    console.log(`******************************`);           
+    console.log(`******************************`);    
+           
     if (playerScore > computerScore) {
         console.log(`\n***Player Wins!***`);
     }
