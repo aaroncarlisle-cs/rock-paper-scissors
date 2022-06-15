@@ -2,7 +2,8 @@ let gameSelections = ["Rock", "Paper", "Scissors"];
 
 function computerPlay() {
     // Randomly return either rock, paper, or scissors as id for gameSelections array
-    return Math.floor(Math.random()*gameSelections.length);
+    // return Math.floor(Math.random()*gameSelections.length);
+    return 0;
 }
 
 function singleRound(playerSelection, computerSelection) {
@@ -72,8 +73,34 @@ function getPlayerSelection () {
 }
 
 function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    let result;
     for (let i = 0; i < 5; i++) {
-        let result = singleRound(getPlayerSelection(), computerPlay());
-
+        result = singleRound(getPlayerSelection(), computerPlay());
+        if (result == 0) {
+            computerScore++;
+        }
+        else if (result == 1) {
+            playerScore++;
+        }
+        else if (result == 2) {
+            computerScore++;
+            playerScore++;
+        }
+        console.log(`
+        Player Score: ${playerScore} Computer Score: ${computerScore}
+        `);
+    }
+    console.log(`******************************`);
+    console.log(` Final Score                `);
+    console.log(` Player: ${playerScore}     `);
+    console.log(` Computer: ${computerScore} `); 
+    console.log(`******************************`);           
+    if (playerScore > computerScore) {
+        console.log(`\n***Player Wins!***`);
+    }
+    else {
+        console.log(`\n***Player Loses!***`);
     }
 }
