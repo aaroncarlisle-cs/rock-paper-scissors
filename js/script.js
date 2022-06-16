@@ -1,4 +1,4 @@
-let selections = ["Rock", "Paper", "Scissors"];
+const selections = ["Rock", "Paper", "Scissors"];
 const lose = 0;
 const win = 1;
 const draw = 2;
