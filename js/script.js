@@ -3,29 +3,28 @@ const lose = 0;
 const win = 1;
 const draw = 2;
 
-function getPlayerSelection () {
-    let playerSelection = null;
-    let valid = false;
-    while (!valid) {
-        playerSelection = prompt("Please enter rock, paper, or scissors.");
-        // Formats the user input for proper string comparison 
-        playerSelection = playerSelection.charAt(0).toUpperCase() + 
-                playerSelection.slice(1).toLowerCase();
-        valid = validateSelection(playerSelection);
-    }
-    console.log(`Player chooses ${playerSelection}.`);
+const rock = document.getElementById("rock-button");
+const paper = document.getElementById("paper-button");
+const scissors = document.getElementById("scissors-button");
+const buttons = [rock, paper, scissors];
+
+for (button of buttons) {
+    button.addEventListener("mouseover", function (e) {
+        this.style.borderColor = "#79B4B7";
+        this.style.transform = "scale(1.1)"
+    });
+    button.addEventListener("mouseout", function (e) {
+        this.style.borderColor = "#9D9D9D";
+        this.style.transform = "scale(1)"
+    });
+}
+
+
+function getPlayerSelection (selection) {
+    playerSelection = selection;
     return playerSelection;
 }
 
-function validateSelection(playerSelection) {
-    for (let i = 0; i < selections.length; i++) {
-        if (playerSelection == selections[i]) {
-            return true;
-        }
-    }
-    alert("Invalid selection. Please try again.");
-    return false;
-}
 
 function computerPlay() {
     let rand = Math.floor(Math.random()*selections.length);
