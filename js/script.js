@@ -8,6 +8,13 @@ const paper = document.getElementById("paper-button");
 const scissors = document.getElementById("scissors-button");
 const buttons = [rock, paper, scissors];
 
+let playerScore = 0;
+let computerScore = 0;
+let draws = 0;
+
+scoreMessage = document.getElementById("score-message");
+scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore} Draws: ${draws}`;
+
 for (button of buttons) {
     button.addEventListener("mouseover", function (e) {
         this.style.borderColor = "#79B4B7";
@@ -17,6 +24,11 @@ for (button of buttons) {
         this.style.borderColor = "#9D9D9D";
         this.style.transform = "scale(1)"
     });
+    button.addEventListener("click", function () {
+        if (this == rock) game("Rock");
+        if (this == paper) game("Paper");
+        if (this == scissors) game("Scissors");
+    })
 }
 
 
@@ -68,15 +80,9 @@ function getWinCondition(playerSelection) {
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    let draws = 0;
-    let result;
-
+function game(selection) {
+    let result = singleRound(selection, computerPlay());
     // Play i rounds of rock, paper, scissors and reports score.
-    for (let i = 0; i < 5; i++) {
-        result = singleRound(getPlayerSelection(), computerPlay());
         if (result == lose) {
             computerScore++;
         }
@@ -89,9 +95,7 @@ function game() {
         console.log(`
         Player Score: ${playerScore} Computer Score: ${computerScore} Draws: ${draws}
         `);
-    }
-
-    printFinalScore(playerScore, computerScore, draws);
+        scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore} Draws: ${draws}`;
 }
 
 function printFinalScore(playerScore, computerScore, draws) {
