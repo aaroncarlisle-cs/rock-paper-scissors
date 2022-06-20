@@ -56,16 +56,10 @@ button {
     border-radius: 20px;
     padding: 20px;
     margin: 20px;
+    transition: border 0.15s, transform 0.15s;
 }
-@keyframes beat {
-    0% {transform: scale(1);}
-    50% {transform: scale(1.1);}
-    100% {transform: scale(1);}
-}
-.hover {
-    animation-name: beat;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
+button:hover {
+    cursor: pointer;
 }
 footer {
     display: flex;
