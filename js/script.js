@@ -1,3 +1,4 @@
+
 const selections = ["Rock", "Paper", "Scissors"];
 const lose = 0;
 const win = 1;
@@ -8,13 +9,12 @@ const paper = document.getElementById("paper-button");
 const scissors = document.getElementById("scissors-button");
 const buttons = [rock, paper, scissors];
 
+
 let playerScore = 0;
 let computerScore = 0;
 let draws = 0;
 
 scoreMessage = document.getElementById("score-message");
-scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
-
 gameMessage = document.getElementById("game-message");
 
 for (button of buttons) {
@@ -33,7 +33,6 @@ for (button of buttons) {
     })
 }
 
-
 function getPlayerSelection (selection) {
     playerSelection = selection;
     return playerSelection;
@@ -48,6 +47,7 @@ function computerPlay() {
 }
 
 function singleRound(playerSelection, computerSelection) {
+    updateIcons(playerSelection, computerSelection);
     if (playerSelection == computerSelection) {
         console.log("Draw!");
         return draw;
@@ -97,24 +97,37 @@ function game(selection) {
             draws++;
             gameMessage.textContent = "Draw";
         }
-        console.log(`
-        Player Score: ${playerScore} Computer Score: ${computerScore} Draws: ${draws}
-        `);
+
         scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
 }
 
-function printFinalScore(playerScore, computerScore, draws) {
-    console.log(`******************************`);
-    console.log(` Final Score                `);
-    console.log(` Player: ${playerScore}     `);
-    console.log(` Computer: ${computerScore} `); 
-    console.log(` Draws: ${draws} `); 
-    console.log(`******************************`);    
-           
-    if (playerScore > computerScore) {
-        console.log(`\n***Player Wins!***`);
+function updateIcons(player, computer) {
+    const icons = document.getElementById("icons");
+    icons.innerHTML = "";
+    icons.innerHTML = getPlayerIcon(player) + getComputerIcon(computer);
+}
+
+function getPlayerIcon(player) {
+    if (player == "Rock") {
+        return '<i class="fa-10x fa-solid fa-hand-back-fist icon" data-fa-transform="rotate-90"></i>';
     }
-    else {
-        console.log(`\n***Player Loses!***`);
+    if (player == "Paper") {
+        return '<i class="fa-10x fa-solid fa-hand icon" data-fa-transform="rotate-90"></i>';
     }
+    if (player == "Scissors") {
+        return '<i class="fa-10x fa-solid fa-hand-scissors icon" data-fa-transform="flip-h"></i>';
+    }
+    return;
+}
+function getComputerIcon(computer) {
+    if (computer == "Rock") {
+        return '<i class="fa-10x fa-solid fa-hand-fist icon" data-fa-transform="rotate-90 flip-h"></i>';
+    }
+    if (computer == "Paper") {
+        return '<i class="fa-10x fa-regular fa-hand icon" data-fa-transform="rotate-90 flip-h"></i>';
+    }
+    if (computer == "Scissors") {
+        return '<i class="fa-10x fa-solid fa-hand-peace icon" data-fa-transform="rotate-90 flip-h"></i>';
+    }
+    return;
 }

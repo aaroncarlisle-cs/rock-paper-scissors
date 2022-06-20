@@ -10,12 +10,14 @@
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <header>Rock Paper Scissors</header>
+    <header><h1>Rock Paper Scissors</h1></header>
     
     <div class="main">
         <div class="game-board">
-            <h1 id="game-message">First to 5 Points Wins</h1>
-            <div class="icons">
+
+
+            
+            <div id="icons">
                 <i class="fa-10x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i>
                 <i class="fa-10x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i>
                 <!-- <i class="fa-10x fa-solid fa-hand-back-fist" data-fa-transform="rotate-90"></i>
@@ -27,9 +29,8 @@
                 <i class="fa-10x fa-solid fa-question"></i>
                 <i class="fa-10x fa-solid fa-question"></i> -->
             </div>
-            <div class="score">
-                <h1 id="score-message"></h1>
-            </div>
+
+            <h1 id="game-message">First to 5 Points Wins</h1>
             <div class="buttons">
                 <button id="rock-button">
                     <i id="rock-icon" class="fa-5x fa-solid fa-hand-fist" data-fa-transform="rotate-40"></i>
@@ -40,6 +41,10 @@
                 <button id="scissors-button">
                     <i id="scissors-icon" class="fa-5x fa-solid fa-hand-scissors" data-fa-transform="flip-h rotate-40"></i>
                 </button>
+            </div>
+            
+            <div class="score">
+                <h1 id="score-message">Player: 0 Computer: 0</h1>
             </div>
         </div>
     </div>
