@@ -13,7 +13,9 @@ let computerScore = 0;
 let draws = 0;
 
 scoreMessage = document.getElementById("score-message");
-scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore} Draws: ${draws}`;
+scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+
+gameMessage = document.getElementById("game-message");
 
 for (button of buttons) {
     button.addEventListener("mouseover", function (e) {
@@ -85,17 +87,20 @@ function game(selection) {
     // Play i rounds of rock, paper, scissors and reports score.
         if (result == lose) {
             computerScore++;
+            gameMessage.textContent = "Computer Wins";
         }
         else if (result == win) {
             playerScore++;
+            gameMessage.textContent = "Player Wins";
         }
         else if (result == draw) {
             draws++;
+            gameMessage.textContent = "Draw";
         }
         console.log(`
         Player Score: ${playerScore} Computer Score: ${computerScore} Draws: ${draws}
         `);
-        scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore} Draws: ${draws}`;
+        scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
 }
 
 function printFinalScore(playerScore, computerScore, draws) {
