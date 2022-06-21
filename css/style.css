@@ -39,7 +39,7 @@ header {
     display: flex;
     flex-direction: row;
     flex-grow: 1;
-    background-color: #F8F0DF;
+    background-color: #FEFBF3;
     justify-content: center;
 }
 .game-board {
@@ -49,8 +49,6 @@ header {
     background-color: #FEFBF3;
     min-width: 70vw;
     align-items: center;
-    border-left: 1px solid #9D9D9D;
-    border-right: 1px solid #9D9D9D;
 }
 #icons {
     display: flex;
@@ -85,6 +83,7 @@ button:hover {
     color: #79B4B7;
 }
 .score {
+    width: 451px;
     padding: 20px;
 }
 footer {
@@ -148,4 +147,15 @@ footer {
 }
 .modal-box button:hover {
     border-color: #79B4B7;
+}
+#github {
+    padding: 0px 10px;
+}
+#github:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: #F8F0DF;
 }
