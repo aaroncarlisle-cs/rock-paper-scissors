@@ -22,8 +22,13 @@ const lose = 0;
 const win = 1;
 const draw = 2;
 
+let playerScore = 0;
+let computerScore = 0;
+let draws = 0;
 
 function game(selection) {
+    let scoreMessage = document.getElementById("score-message");
+    let gameMessage = document.getElementById("game-message");
     let computerSelection = computerPlay();
     let result = singleRound(selection, computerSelection);
         if (result == lose) {
@@ -114,6 +119,7 @@ function getPlayerIcon(selection) {
     }
     return;
 }
+
 function getComputerIcon(computer) {
     let computerIcon = document.createElement('i');
     computerIcon.classList.add('icon', 'fa-10x');
@@ -132,10 +138,3 @@ function getComputerIcon(computer) {
     }
     return;
 }
-
-let playerScore = 0;
-let computerScore = 0;
-let draws = 0;
-
-scoreMessage = document.getElementById("score-message");
-gameMessage = document.getElementById("game-message");
