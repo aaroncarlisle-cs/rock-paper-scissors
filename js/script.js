@@ -87,8 +87,8 @@ function updateIcons(selection, computerSelection, result) {
         computerIcon.style.color = '#79B4B7';
     }
     else {
-        playerIcon.classList.add('draw', 'fa-bounce');
-        computerIcon.classList.add('draw', 'fa-bounce');
+        playerIcon.classList.add('draw', 'fa-beat-fade');
+        computerIcon.classList.add('draw', 'fa-beat-fade');
     }
     icons.appendChild(playerIcon);
     icons.appendChild(computerIcon);

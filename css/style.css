@@ -90,5 +90,8 @@ footer {
     transform: scale(0.8);
 }
 .draw {
-    --fa-animation-duration: 3s;
+    opacity: 0.8;
+    --fa-animation-duration: 1.5s;
+    --fa-beat-fade-opacity: 0.9;
+    --fa-beat-fade-scale: 1.05;
 }
