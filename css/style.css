@@ -14,6 +14,7 @@ white-silver: EEEEEE */
     box-sizing: border-box; 
     margin: 0; 
     padding: 0; 
+    font-family: 'Roboto Slab', serif;
 }
 body {
     display: flex;
@@ -26,6 +27,10 @@ header {
     align-items: center;
     background-color: #79B4B7;
     min-height: 10vh;
+    font-family: 'Roboto Slab', serif;
+    font-size: 22px;
+    color: #F8F0DF;
+    border-bottom: 1px solid #9D9D9D;
 }
 .main {
     display: flex;
@@ -41,6 +46,8 @@ header {
     background-color: #FEFBF3;
     min-width: 70vw;
     align-items: center;
+    border-left: 1px solid #9D9D9D;
+    border-right: 1px solid #9D9D9D;
 }
 #icons {
     display: flex;
@@ -78,6 +85,9 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: #79B4B7;
+    border-top: 1px solid #9D9D9D;
+    color: #F8F0DF;
+    font-size: 20px;
 }
 .winner {
     --fa-beat-scale: 1.05;
