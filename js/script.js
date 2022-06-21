@@ -89,17 +89,15 @@ function updateIcons(selection, computerSelection, result) {
     icons.innerHTML = "";
     let playerIcon = getPlayerIcon(selection);
     let computerIcon = getComputerIcon(computerSelection);
+    playerIcon.style.color = '#79B4B7';
+    computerIcon.style.color = '#EB6073';
     if (result == win) { 
         playerIcon.classList.add('winner', 'fa-beat');
-        playerIcon.style.color = '#79B4B7';
         computerIcon.classList.add('loser', 'fa-fade');
-        computerIcon.style.color = '#EB6073';
     }
     else if (result == lose) {
         playerIcon.classList.add('loser', 'fa-fade');
-        playerIcon.style.color = '#EB6073';
         computerIcon.classList.add('winner', 'fa-beat');
-        computerIcon.style.color = '#79B4B7';
     }
     else {
         playerIcon.classList.add('draw', 'fa-beat-fade');
@@ -149,11 +147,16 @@ function getComputerIcon(computer) {
     return;
 }
 function checkWin() {
-        let winner;
-        if (playerScore == 5) winner = "Player";
-        else if (computerScore == 5) winner = "Computer";
-        document.querySelector('.declare-winner').textContent = `${winner} has won the game!`;
-        modal.style.display = 'block';
+    let winner = document.querySelector('.winner-name');
+    if (playerScore == 5) {
+        winner.textContent = "Player";
+        winner.style.color = "#79B4B7";
+    }
+    else if (computerScore == 5) {
+        winner.textContent = "Computer";
+        winner.style.color = "#EB6073";
+    }
+    modal.style.display = 'block';
 }
 
 function resetGame() {
@@ -163,10 +166,4 @@ function resetGame() {
     scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     gameMessage.textContent = 'First to 5 Points Wins';
     icons.innerHTML = '<i class="fa-10x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i><i class="fa-10x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i>';
-    // let newGameIcon = document.createElement('i');
-    // newGameIcon.classList.add('fa-10x', 'fa-solid', 'fa-question', 'icon', 'fa-beat-fade');
-    // newGameIcon.setAttribute('style', '--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;');
-    // let newGameIcon2 = newGameIcon;
-    // icons.appendChild(newGameIcon);
-    // icons.appendChild(newGameIcon2);
 }
