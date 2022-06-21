@@ -5,14 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./js/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <script src="./js/script.js" defer></script>
+    <script src="https://kit.fontawesome.com/b80dae9188.js" crossorigin="anonymous"></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
-    <h1>Rock Paper Scissors</h1>
-    <p>This JavaScript program currently only works in the console. 
-        You can run the program by calling the <strong>game()</strong> function
-    </p>
-    <p>This paragraph only exists in the new branch rps-ui.</p>
+    <header><h1>Rock Paper Scissors</h1></header>
+    
+    <div class="main">
+        <div class="game-board">
+
+            <h1 id="game-message">First to 5 Points Wins</h1>
+            
+            <div id="icons">
+                <i class="fa-10x fa-solid fa-question icon fa-beat-fade"></i>
+                <i class="fa-10x fa-solid fa-question icon fa-beat-fade"></i>
+            </div>
+
+            
+            <div class="buttons">
+                <button id="rock-button">
+                    <i id="rock-icon" class="fa-5x fa-solid fa-hand-fist" data-fa-transform="rotate-40"></i>
+                </button>
+                <button id="paper-button">
+                    <i id="paper-icon" class="fa-5x fa-solid fa-hand" data-fa-transform="rotate-40"></i>
+                </button>
+                <button id="scissors-button">
+                    <i id="scissors-icon" class="fa-5x fa-solid fa-hand-scissors" data-fa-transform="flip-h rotate-40"></i>
+                </button>
+            </div>
+            
+            <div class="score">
+                <h1 id="score-message">Player: 0 Computer: 0</h1>
+            </div>
+        </div>
+    </div>
+    <footer>&copy; 2022 aaroncarlisle-cs 
+        <span id="github">
+            <a href="https://www.github.com/aaroncarlisle-cs">
+                <i class="fa-brands fa-github" data-fa-transform="grow-2"></i>
+            </a>
+        </span>
+    </footer>
+
+    <div class="modal">
+        <div class="modal-box">
+            <h1>Game Over</h1>
+            <h2 class="declare-winner"><span class="winner-name"></span> has won the game!</h2>
+            <button id="modal-close">Play Again</button>
+        </div>
+    </div>
 </body>
 </html>
