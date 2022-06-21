@@ -18,33 +18,41 @@ for (button of buttons) {
     })
 }
 
+let playerScore = 0;
+let computerScore = 0;
+let draws = 0;
+const scoreMessage = document.getElementById("score-message");
+const gameMessage = document.getElementById("game-message");
+
+const modal = document.querySelector('.modal');
+const modalClose = document.getElementById('modal-close');
+modalClose.addEventListener('click', function () {
+    modal.style.display = 'none';
+    resetGame();
+});
+
 const lose = 0;
 const win = 1;
 const draw = 2;
 
-let playerScore = 0;
-let computerScore = 0;
-let draws = 0;
-
 function game(selection) {
-    let scoreMessage = document.getElementById("score-message");
-    let gameMessage = document.getElementById("game-message");
     let computerSelection = computerPlay();
     let result = singleRound(selection, computerSelection);
-        if (result == lose) {
-            computerScore++;
-            gameMessage.textContent = "Computer Wins";
-        }
-        else if (result == win) {
-            playerScore++;
-            gameMessage.textContent = "Player Wins";
-        }
-        else if (result == draw) {
-            draws++;
-            gameMessage.textContent = "Draw";
-        }
-        scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
-        updateIcons(selection, computerSelection, result);
+    if (result == lose) {
+        computerScore++;
+        gameMessage.textContent = "Computer Wins";
+    }
+    else if (result == win) {
+        playerScore++;
+        gameMessage.textContent = "Player Wins";
+    }
+    else if (result == draw) {
+        draws++;
+        gameMessage.textContent = "Draw";
+    }
+    scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+    updateIcons(selection, computerSelection, result);
+    checkWin();
 }
 
 function computerPlay() {
@@ -137,4 +145,28 @@ function getComputerIcon(computer) {
         return computerIcon;
     }
     return;
+}
+function checkWin() {
+    if (playerScore == 5 || computerScore == 5) {
+        let winner;
+        if (playerScore == 5) winner = "Player";
+        else if (computerScore == 5) winner = "Computer";
+        document.querySelector('.declare-winner').textContent = `${winner} has won the game!`;
+        modal.style.display = 'block';
+    }
+}
+
+function resetGame() {
+    playerScore = 0;
+    computerScore = 0;
+    draws = 0;
+    scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
+    gameMessage.textContent = 'First to 5 Points Wins';
+    icons.innerHTML = '<i class="fa-10x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i><i class="fa-10x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i>';
+    // let newGameIcon = document.createElement('i');
+    // newGameIcon.classList.add('fa-10x', 'fa-solid', 'fa-question', 'icon', 'fa-beat-fade');
+    // newGameIcon.setAttribute('style', '--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;');
+    // let newGameIcon2 = newGameIcon;
+    // icons.appendChild(newGameIcon);
+    // icons.appendChild(newGameIcon2);
 }
