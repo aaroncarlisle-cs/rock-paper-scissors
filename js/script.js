@@ -1,8 +1,22 @@
-
 const rock = document.getElementById("rock-button");
 const paper = document.getElementById("paper-button");
 const scissors = document.getElementById("scissors-button");
 const buttons = [rock, paper, scissors];
+for (button of buttons) {
+    button.addEventListener("mouseover", function (e) {
+        this.style.borderColor = "#79B4B7";
+        this.style.transform = "scale(1.1)"
+    });
+    button.addEventListener("mouseout", function (e) {
+        this.style.borderColor = "#9D9D9D";
+        this.style.transform = "scale(1)"
+    });
+    button.addEventListener("click", function () {
+        if (this == rock) game(rock);
+        if (this == paper) game(paper);
+        if (this == scissors) game(scissors);
+    })
+}
 
 const lose = 0;
 const win = 1;
@@ -61,12 +75,20 @@ function updateIcons(selection, computerSelection, result) {
     let playerIcon = getPlayerIcon(selection);
     let computerIcon = getComputerIcon(computerSelection);
     if (result == win) { 
-        playerIcon.classList.add('winner');
-        computerIcon.classList.add('loser');
+        playerIcon.classList.add('winner', 'fa-beat');
+        playerIcon.style.color = '#79B4B7';
+        computerIcon.classList.add('loser', 'fa-fade');
+        computerIcon.style.color = '#EB6073';
     }
     else if (result == lose) {
-        playerIcon.classList.add('loser');
-        computerIcon.classList.add('winner');
+        playerIcon.classList.add('loser', 'fa-fade');
+        playerIcon.style.color = '#EB6073';
+        computerIcon.classList.add('winner', 'fa-beat');
+        computerIcon.style.color = '#79B4B7';
+    }
+    else {
+        playerIcon.classList.add('draw', 'fa-bounce');
+        computerIcon.classList.add('draw', 'fa-bounce');
     }
     icons.appendChild(playerIcon);
     icons.appendChild(computerIcon);
@@ -117,19 +139,3 @@ let draws = 0;
 
 scoreMessage = document.getElementById("score-message");
 gameMessage = document.getElementById("game-message");
-
-for (button of buttons) {
-    button.addEventListener("mouseover", function (e) {
-        this.style.borderColor = "#79B4B7";
-        this.style.transform = "scale(1.1)"
-    });
-    button.addEventListener("mouseout", function (e) {
-        this.style.borderColor = "#9D9D9D";
-        this.style.transform = "scale(1)"
-    });
-    button.addEventListener("click", function () {
-        if (this == rock) game(rock);
-        if (this == paper) game(paper);
-        if (this == scissors) game(scissors);
-    })
-}

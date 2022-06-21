@@ -46,6 +46,8 @@ header {
     display: flex;
     flex-direction: row;
     padding: 3vh 3vw;
+    justify-content: center;
+    align-items: center;
 }
 .icon {
     padding: 20px;
@@ -68,6 +70,7 @@ button {
 }
 button:hover {
     cursor: pointer;
+    color: #79B4B7;
 }
 footer {
     display: flex;
@@ -75,4 +78,17 @@ footer {
     justify-content: center;
     align-items: center;
     background-color: #79B4B7;
+}
+.winner {
+    --fa-beat-scale: 1.05;
+    --fa-animation-duration: 1.5s;
+}
+.loser {
+    --fa-fade-opacity: 0.2;
+    --fa-animation-duration: 1.5s;
+    opacity: 0.6;
+    transform: scale(0.8);
+}
+.draw {
+    --fa-animation-duration: 3s;
 }
