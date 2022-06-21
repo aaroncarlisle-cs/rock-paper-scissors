@@ -12,9 +12,10 @@ for (button of buttons) {
         this.style.transform = "scale(1)"
     });
     button.addEventListener("click", function () {
-        if (this == rock) game(rock);
-        if (this == paper) game(paper);
-        if (this == scissors) game(scissors);
+        if (playerScore == 5 || computerScore == 5) checkWin();
+        else if (this == rock) game(rock);
+        else if (this == paper) game(paper);
+        else if (this == scissors) game(scissors);
     })
 }
 
@@ -25,6 +26,7 @@ const scoreMessage = document.getElementById("score-message");
 const gameMessage = document.getElementById("game-message");
 
 const modal = document.querySelector('.modal');
+modal.addEventListener('click', () => modal.style.display = 'none');
 const modalClose = document.getElementById('modal-close');
 modalClose.addEventListener('click', function () {
     modal.style.display = 'none';
@@ -52,7 +54,7 @@ function game(selection) {
     }
     scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     updateIcons(selection, computerSelection, result);
-    checkWin();
+    if (playerScore == 5 || computerScore == 5) checkWin();
 }
 
 function computerPlay() {
@@ -147,13 +149,11 @@ function getComputerIcon(computer) {
     return;
 }
 function checkWin() {
-    if (playerScore == 5 || computerScore == 5) {
         let winner;
         if (playerScore == 5) winner = "Player";
         else if (computerScore == 5) winner = "Computer";
         document.querySelector('.declare-winner').textContent = `${winner} has won the game!`;
         modal.style.display = 'block';
-    }
 }
 
 function resetGame() {
