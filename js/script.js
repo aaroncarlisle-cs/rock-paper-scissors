@@ -109,7 +109,7 @@ function updateIcons(selection, computerSelection, result) {
 
 function getPlayerIcon(selection) {
     let playerIcon = document.createElement('i');
-    playerIcon.classList.add('icon', 'fa-8x', 'fa-solid');
+    playerIcon.classList.add('icon', 'fa-7x', 'fa-solid');
     if (selection == rock) {
         playerIcon.classList.add('fa-hand-back-fist');
         playerIcon.setAttribute('data-fa-transform', 'rotate-90');
@@ -130,7 +130,7 @@ function getPlayerIcon(selection) {
 
 function getComputerIcon(computer) {
     let computerIcon = document.createElement('i');
-    computerIcon.classList.add('icon', 'fa-8x');
+    computerIcon.classList.add('icon', 'fa-7x');
     computerIcon.setAttribute('data-fa-transform', 'rotate-90 flip-h');
     if (computer == rock) {
         computerIcon.classList.add('fa-solid', 'fa-hand-fist');
@@ -165,5 +165,5 @@ function resetGame() {
     draws = 0;
     scoreMessage.textContent = `Player: ${playerScore} Computer: ${computerScore}`;
     gameMessage.textContent = 'First to 5 Points Wins';
-    icons.innerHTML = '<i class="fa-8x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i><i class="fa-8x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i>';
+    icons.innerHTML = '<i class="fa-7x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i><i class="fa-7x fa-solid fa-question icon fa-beat-fade" style="--fa-beat-fade-opacity: 0.8; --fa-beat-fade-scale: 1.01;"></i>';
 }
