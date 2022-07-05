@@ -15,32 +15,33 @@
 <body>
     <header><h1>Rock Paper Scissors</h1></header>
     
-    <div class="main">
-        <div class="game-board">
+    <div class="game-board">
+        <h1 id="game-message">First to 5 Points Wins</h1>
+        
+        <div id="icons">
+            <div class="icon-left">
+                <i class="fa-8x fa-solid fa-question icon fa-beat-fade"></i>
+            </div>
+            <div class="icon-right">
+                <i class="fa-8x fa-solid fa-question icon fa-beat-fade"></i>
+            </div>
+        </div>
 
-            <h1 id="game-message">First to 5 Points Wins</h1>
             
-            <div id="icons">
-                <i class="fa-10x fa-solid fa-question icon fa-beat-fade"></i>
-                <i class="fa-10x fa-solid fa-question icon fa-beat-fade"></i>
-            </div>
-
+        <div class="buttons">
+            <button id="rock-button">
+                <i id="rock-icon" class="fa-5x fa-solid fa-hand-fist" data-fa-transform="rotate-40"></i>
+            </button>
+            <button id="paper-button">
+                <i id="paper-icon" class="fa-5x fa-solid fa-hand" data-fa-transform="rotate-40"></i>
+            </button>
+            <button id="scissors-button">
+                <i id="scissors-icon" class="fa-5x fa-solid fa-hand-scissors" data-fa-transform="flip-h rotate-40"></i>
+            </button>
+        </div>
             
-            <div class="buttons">
-                <button id="rock-button">
-                    <i id="rock-icon" class="fa-5x fa-solid fa-hand-fist" data-fa-transform="rotate-40"></i>
-                </button>
-                <button id="paper-button">
-                    <i id="paper-icon" class="fa-5x fa-solid fa-hand" data-fa-transform="rotate-40"></i>
-                </button>
-                <button id="scissors-button">
-                    <i id="scissors-icon" class="fa-5x fa-solid fa-hand-scissors" data-fa-transform="flip-h rotate-40"></i>
-                </button>
-            </div>
-            
-            <div class="score">
-                <h1 id="score-message">Player: 0 Computer: 0</h1>
-            </div>
+        <div class="score">
+            <h1 id="score-message">Player: 0 Computer: 0</h1>
         </div>
     </div>
     <footer>&copy; 2022 aaroncarlisle-cs 
