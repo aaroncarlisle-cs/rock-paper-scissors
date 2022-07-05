@@ -1,7 +1,6 @@
 Rock Paper Scissors
 ======
-Rock Paper Scissors game against the computer.
-Built with HTML, CSS, and JavaScript.
+Rock Paper Scissors game against the computer - Built with HTML, CSS, and JavaScript.
 
 :arrow_right:  [Live Demo](https://aaroncarlisle-cs.github.io/rock-paper-scissors)
 
@@ -9,7 +8,9 @@ Created as a part of the curriculum for [The Odin Project.](https://www.theodinp
 
 Features:
 ----------------
-- Randomly select the computer's moves and uses a win condition function to compare the results and determine the winner.
+- Randomly select the computer's moves.
+
+- Uses a win condition function to compare the results and determine the winner.
 
 - Dynamically generates the HTML content as events are fired by the user.
 
