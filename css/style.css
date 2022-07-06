@@ -79,6 +79,7 @@ button {
 button:hover {
     cursor: pointer;
     color: #79B4B7;
+    transform: scale(1);
 }
 .score {
     padding: 20px;
@@ -208,6 +209,9 @@ footer {
     }
     #game-message {
         margin: 16px;
+    }
+    button:hover {
+        transform: scale(1.1);
     }
 }
 }
