@@ -5,7 +5,7 @@ const buttons = [rock, paper, scissors];
 for (button of buttons) {
     button.addEventListener("mouseover", function (e) {
         this.style.borderColor = "#79B4B7";
-        this.style.transform = "scale(1.1)"
+        this.style.transform = "scale(1.0)"
     });
     button.addEventListener("mouseout", function (e) {
         this.style.borderColor = "#9D9D9D";
