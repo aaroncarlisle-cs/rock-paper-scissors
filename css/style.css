@@ -184,34 +184,31 @@ a:link, a:visited, a:hover, a:active {
     }
 button {
     padding: 40px;
-    }
-    .modal-box h1 {
+}
+ .modal-box h1 {
         font-size: 3rem;
-    }
+}
     .modal-box h2, .modal-box button{
         font-size: 1.5rem;
         margin: 1rem;
-    }
-    footer {
+}
+footer {
         min-height: 4rem;
         font-size: 1.5rem;
+}
+@media screen and (min-width: 768px) {
+    header h1 {
+        font-size: (1rem, 1.2rem, 32px);
     }
-    @media screen and (min-width: 768px) {
-        header h1 {
-            font-size: (1rem, 1.2rem, 32px);
-        }
-        .buttons {
-            flex-direction: row;
-            margin: 16px;
-            justify-content: center;
-            gap: clamp(16px, 2rem, 20px);
-        }
-        button {
-            border: 1px solid red;
-        }
-        #game-message {
-            margin: 16px;
-        }
+    .buttons {
+        flex-direction: row;
+        margin: 16px;
+        justify-content: center;
+        gap: clamp(16px, 2rem, 20px);
     }
-        
+    #game-message {
+        margin: 16px;
     }
+}
+}
+
